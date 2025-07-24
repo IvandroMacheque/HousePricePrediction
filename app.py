@@ -9,10 +9,12 @@ with open("Linear Regression.pkl", "rb") as f:
 if "historic" not in st.session_state:
     st.session_state.historic = pd.DataFrame()
 
+# configurando a sidebar
 with st.sidebar:
     st.header('Options')
     decision = st.selectbox("Mode", ['Price Predict', 'Predicted Data'])
     st.markdown("### 🔗 Links Úteis")
+    st.markdown("[📁 Este Projeto](https://github.com/IvandroMacheque/HousePricePrediction.git)")
     st.markdown("[👨‍💻 Meu GitHub](https://github.com/IvandroMacheque/IvandroMacheque.git)")
     st.markdown("[💼 Meu LinkedIn](https://www.linkedin.com/in/ivandromacheque?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)")
 
@@ -21,6 +23,7 @@ if decision == 'Price Predict':
     st.title("🏡 House Price Prediction")
     st.write('## Insira os Dados da Casa')
 
+    # input dos dados
     col1, col2 = st.columns(2)
     with col2:
         lot_size = st.slider('Lot Size', 0.500000, 5.000000, 2.000000)
@@ -53,6 +56,7 @@ if decision == 'Price Predict':
         if garage_size == "Sem Garagem":
             garage_size = 0
 
+    # criar e modelar o dataset para o modelo
     data_modelo = {'Square_Footage': square_footage,
             'Year_Built': year_built,
             'Lot_Size': lot_size}
@@ -63,7 +67,7 @@ if decision == 'Price Predict':
     dados_modelo['Square_Footage_Category'] = dados_modelo['Square_Footage_Category'].map({'baixo': 0,
                                                                             'medio': 1,
                                                                             'alto': 2})
-
+    # previsao do preco
     def prever():
         previsao = modelo.predict(dados_modelo)
         with container:
@@ -79,12 +83,14 @@ if decision == 'Price Predict':
         dados = pd.DataFrame(data, index=[0])
         st.session_state.historic = pd.concat([st.session_state.historic, dados], ignore_index=True)
 
+    # botao de previsao
     container = st.container()
     st.button("Realizar Previsão", on_click=prever)
 
 else:
     st.title("📜 Forecast History")
 
+    # visualizacao do histórico de previsão 
     st.dataframe(st.session_state.historic)
 
     # linha de botoes
