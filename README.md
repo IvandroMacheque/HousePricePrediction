@@ -52,12 +52,12 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 # 📁 Estrutura do Projeto
 .
 ├── notebook/
-│   └── main.ipynb                     # Notebook com a análise e treinamento do modelo
-├── app.py                             # Script da aplicação Streamlit
-├── house_price_regression_dataset.csv # Dataset original
-├── Linear Regression.pkl              # Modelo de regressão treinado e salvo
-├── README.md                          # Este ficheiro
-└── requirements.txt                   # Dependências do projeto
+│   └── main.ipynb                      # Notebook com a análise e treinamento do modelo
+├── Linear Regression.pkl               # Modelo de regressão treinado e salvo
+├── README.md                           # Este ficheiro
+├── app.py                              # Script da aplicação Streamlit
+├── house_price_regression_dataset.csv  # Dataset original
+└── requirements.txt                    # Dependências do projeto
 
 # 📈 Uso da Aplicação
 
