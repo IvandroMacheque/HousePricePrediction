@@ -77,3 +77,4 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 
 # 🔗 Link da Aplicação
 
+https://previsaodeprecosdecasas.streamlit.app/
