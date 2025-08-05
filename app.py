@@ -107,7 +107,6 @@ else:
     with but2:
         if not st.session_state.historic.empty:
             def convert_for_download(df):
-                df = pd.DataFrame()
                 return df.to_csv(index=False).encode("utf-8")
             
             file = convert_for_download(st.session_state.historic)
@@ -117,3 +116,4 @@ else:
                 file_name='Precos Previstos.csv',
                 mime='text/csv'
             )
+
